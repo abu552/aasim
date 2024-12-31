@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="microchip.png">
+    <title>Simple Search Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .css {
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        #searchInput:focus {
+            border-color: #007bff;
+        }
+
+        #results {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .item {
+            margin: 5px 0;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .item.hidden {
+            display: none;
+        }
+
+        .copy-icon {
+            cursor: pointer;
+            font-size: 16px;
+            color: #007bff;
+            margin-left: 10px;
+        }
+
+        .copy-icon:hover {
+            color: #0056b3;
+        }
+
+        .copy-popup {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+
+        .copy-popup.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Aasim Ai</h1>
+<input type="text" id="searchInput" placeholder="Search for fruits..." />
+
+<div id="results">
+    <div class="item">Ai <span class="copy-icon">📋</span></div>
+    <div class="item">what is your name <span class="copy-icon">📋</span></div>
+    <div class="item">i love you <span class="copy-icon">📋</span></div>
+    <div class="item">how are you <span class="copy-icon">📋</span></div>
+    <div class="item">countact number <span class="copy-icon">📋</span></div>
+    <div class="item">hello <span class="copy-icon">📋</span></div>
+    <div class="item">email id <span class="copy-icon">📋</span></div>
+    <div class="item">email <span class="copy-icon">📋</span></div>
+    <div class="item">instagram id <span class="copy-icon">📋</span></div>
+    <div class="item">insta <span class="copy-icon">📋</span></div>
+    <div class="item">about you <span class="copy-icon">📋</span></div>
+    <div class="item">vibe song in tamil <span class="copy-icon">📋</span></div>
+    <div class="item">what is human <span class="copy-icon">📋</span></div>    
+    <div class="item">best game in 2024 <span class="copy-icon">📋</span></div>    
+    <div class="item">best game <span class="copy-icon">📋</span></div>    
+    <div class="item">best pc game in 2024 <span class="copy-icon">📋</span></div>    
+    <div class="item">best pc game <span class="copy-icon">📋</span></div>
+    <div class="item">time <span class="copy-icon">📋</span></div>
+    <div class="item">date <span class="copy-icon">📋</span></div>
+    <div class="item">dark mode <span class="copy-icon">📋</span></div>
+    <div class="item">dark <span class="copy-icon">📋</span></div>
+    <div class="item">light mode <span class="copy-icon">📋</span></div>
+    <div class="item">cls <span class="copy-icon">📋</span></div>
+    <div class="item">bay <span class="copy-icon">📋</span></div>
+    <div class="item">echo{your name} <span class="copy-icon">📋</span></div>
+    <div class="item">git <span class="copy-icon">📋</span></div>
+    <div class="item">github <span class="copy-icon">📋</span></div>
+    <div class="item">hack it <span class="copy-icon">📋</span></div>
+    <div class="item">love song in tamil <span class="copy-icon">📋</span></div>
+    <div class="item">breake up soung in tamil <span class="copy-icon">📋</span></div>
+    <div class="item">what is html file <span class="copy-icon">📋</span></div>
+    <div class="item">what is pc <span class="copy-icon">📋</span></div>
+    <div class="item">what is your age <span class="copy-icon">📋</span></div>
+    <div class="item">best online game <span class="copy-icon">📋</span></div>
+    <div class="item">best online game in free <span class="copy-icon">📋</span></div>
+    <div class="item">blue <span class="copy-icon">📋</span></div>
+    <div class="item">refarse <span class="copy-icon">📋</span></div>
+    <div class="item">reload <span class="copy-icon">📋</span></div>
+    <div class="item">f5 <span class="copy-icon">📋</span></div>
+    <div class="item">goto game center <span class="copy-icon">📋</span></div>
+    <div class="item">game center <span class="copy-icon">📋</span></div>
+    <div class="item">hi <span class="copy-icon">📋</span></div>
+    <div class="item">what is father name <span class="copy-icon">📋</span></div>
+    <div class="item">what is money <span class="copy-icon">📋</span></div>
+    <div class="item">lock <span class="copy-icon">📋</span></div>
+    <div class="item">how to hack a wife password <span class="copy-icon">📋</span></div>
+    <div class="item">what is rocket <span class="copy-icon">📋</span></div>
+    <div class="item">what is water <span class="copy-icon">📋</span></div>
+    <div class="item">what is dna <span class="copy-icon">📋</span></div>
+    <div class="item">why <span class="copy-icon">📋</span></div>
+    <div class="item">i know <span class="copy-icon">📋</span></div>
+    <div class="item">i no <span class="copy-icon">📋</span></div>
+    <div class="item">what is maths <span class="copy-icon">📋</span></div>
+    <div class="item">what is food <span class="copy-icon">📋</span></div>
+    <div class="item">what is life <span class="copy-icon">📋</span></div>
+    <div class="item">vibe song in tamil <span class="copy-icon">📋</span></div>
+    <div class="item">ai call <span class="copy-icon">📋</span></div>
+    <div class="item">aa924sim5738 <span class="copy-icon">📋</span></div>
+    <h1 class="css">Not Available</h1>
+</div>
+
+<div class="copy-popup" id="copyPopup">Copied to clipboard</div>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const items = document.querySelectorAll('.item');
+    const copyPopup = document.getElementById('copyPopup');
+
+    searchInput.addEventListener('input', function() {
+        const searchValue = searchInput.value.toLowerCase();
+
+        items.forEach(item => {
+            const text = item.textContent.toLowerCase();
+            item.style.display = text.includes(searchValue) ? 'block' : 'none';
+        });
+    });
+
+    // Add copy functionality
+    const copyIcons = document.querySelectorAll('.copy-icon');
+    copyIcons.forEach((icon, index) => {
+        icon.addEventListener('click', () => {
+            const textToCopy = items[index].textContent.replace('📋', '').trim();
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showCopyPopup();
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        });
+    });
+
+    function showCopyPopup() {
+        copyPopup.classList.add('show');
+        setTimeout(() => {
+            copyPopup.classList.remove('show');
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
